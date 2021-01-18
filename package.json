@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/YJGS-dev/video-streaming/issues"
   },
-  "homepage": "https://github.com/YJGS-dev/video-streaming#readme"
+  "homepage": "https://github.com/YJGS-dev/video-streaming#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
