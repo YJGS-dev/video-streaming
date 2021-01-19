@@ -5,7 +5,8 @@ router.get('/',(req,res)=>{
     res.render('index');
 });
 router.get('/video',(req,res)=>{
-    const size=fs.statSync('./videos/video.mp4').size;
+    const videoPath='./videos/video.mp4';
+    const size=fs.statSync(videoPath).size;
     const range=req.headers.range.replace(/\D/g, "");
     const chunk=Number(process.env.CHUNK);
     const start=Number(range);
@@ -18,7 +19,7 @@ router.get('/video',(req,res)=>{
         'Content-length':contentLength,
     }
     res.writeHead(206,headers);
-    const rs=fs.createReadStream('./videos/Good_Grace_.mp4',{start,end});
+    const rs=fs.createReadStream(videoPath,{start,end});
     rs.pipe(res);
 
 });
